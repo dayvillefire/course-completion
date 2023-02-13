@@ -1,0 +1,60 @@
+mail:
+  server-name: smtp.mail
+  server-port: 587
+  username: "j.buchbinder@example.net"
+  password: "password"
+  subject: "Suicide Prevention for First Responders - Certificate and Resources"
+  template: "
+<p>Thank you for attending the pilot session of Suicide Prevention for First Responders. Attached is your certificate of completion, which is worth 2.0 hours of CME toward your continuing education requirements. If you did not get a chance to look at any of the suicide prevention and mental health resources distributed during the class, this link has all of those resources:</p>
+
+<p>https://drive.google.com/drive/</p>
+
+<p>If you have any follow-up questions, please send them to training@example.net.</p>
+
+--<br/>
+Thanks,<br/>
+Jeffrey Buchbinder<br/>
+House Captain / Training Officer<br/>
+<b>Dayville Fire Company</b><br/>
+e: j.buchbinder@example.net | m: 860.555.1212
+  "
+  from-name: "Jeffrey Buchbinder"
+  from-email: "j.buchbinder@example.net"
+template:
+  pdf-file: templates/blank-certificate.pdf
+  global-replacements:
+    instructor: "Karen Bond"
+    instructor-qual: "EMSI"
+    credits: "This course is worth 2.0 hours of CEU (CTOEMS-2022-0955)."
+  replacements:
+    name:
+      default: "Clark W. Griswold"
+      font-family: "Playlist-Script"
+      font-json: "Playlist Script.json"
+      font-size: 48
+      name-y: 280
+    coursetext:
+      default: "completed the Suicide Prevention for First Responders class on Feb 14th, 2023."
+      font-family: "Go-Regular"
+      font-json: "Go-Regular.json"
+      font-size: 20
+      name-y: 360
+    instructor:
+      font-family: "Go-Bold"
+      font-json: "Go-Bold.json"
+      font-size: 16
+      name-y: 460
+    instructor-qual:
+      font-family: "Go-Regular"
+      font-json: "Go-Regular.json"
+      font-size: 14
+      name-y: 480
+    credits:
+      font-family: "Go-Bold"
+      font-json: "Go-Bold.json"
+      font-size: 16
+      name-y: 520
+data:
+  name-field: name
+  email-field: email
+

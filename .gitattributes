@@ -1,0 +1,2 @@
+config.yaml filter=git-crypt diff=git-crypt
+config-class*.yaml filter=git-crypt diff=git-crypt
