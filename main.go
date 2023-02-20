@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"strings"
 )
 
 var (
@@ -22,7 +23,7 @@ func main() {
 	}
 
 	// Determine action
-	if *action != "test" && *action != "run" {
+	if *action != "test" && *action != "run" && *action != "dryrun" {
 		panic("Invalid action")
 	}
 
@@ -100,7 +101,7 @@ func main() {
 				log.Printf("WARN: Skipped item, no data for %s column", c.Data.EmailField)
 				continue
 			}
-			certName := "Certificate - " + destName + ".pdf"
+			certName := "Certificate - " + strings.TrimSpace(destName) + ".pdf"
 
 			// Create certificate
 			log.Printf("INFO: %#v", c)
@@ -114,6 +115,11 @@ func main() {
 			// Populate defaults
 			for x, y := range c.Template.Replacements {
 				values[x] = y.Default
+			}
+
+			// Override values with global replacements
+			for k, v := range c.Template.GlobalReplacements {
+				values[k] = v
 			}
 
 			// Override values with data
