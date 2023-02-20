@@ -3,4 +3,5 @@ Certificate*.pdf
 test.pdf
 course-completion*
 config-class*.yaml
+*.xlsx
 *~
